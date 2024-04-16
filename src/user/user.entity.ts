@@ -13,9 +13,7 @@ import {
   HasMany,
 } from 'sequelize-typescript';
 import { UserRole } from 'src/core/contanst/user-role.enum';
-import { Department } from 'src/department/entities/department.entity';
-import { Salary } from 'src/salary/entities/salary.entity';
-import { Timekeeping } from 'src/timekeeping/entities/timekeeping.entity';
+import { News } from 'src/news/entities/news.entity';
 
 @Table({
   tableName: 'tbl_user',
@@ -57,7 +55,7 @@ export class User extends Model<User> {
     type: DataType.STRING,
     defaultValue: UserRole.USER,
     validate: {
-      isIn: [[UserRole.USER, UserRole.ADMIN, UserRole.SUPER_ADMIN]],
+      isIn: [[UserRole.USER, UserRole.ADMIN]],
     },
   })
   role: UserRole;
@@ -84,16 +82,7 @@ export class User extends Model<User> {
   @UpdatedAt
   UpdatedAt: Date;
   // asscosation
-  @ForeignKey(() => Department)
-  @Column({ field: 'department_id', type: DataType.UUID })
-  department_id: string;
 
-  @BelongsTo(() => Department)
-  department: Department;
-
-  @HasMany(() => Salary)
-  salary_list: Salary[];
-
-  @HasMany(() => Timekeeping)
-  timekeeping_list: Timekeeping[];
+  @HasMany(() => News)
+  bew_list: News[];
 }

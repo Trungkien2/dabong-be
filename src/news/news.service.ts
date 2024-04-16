@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 
+import { News } from './entities/news.entity';
 import { CrudService } from 'src/core/Base/crud.service';
-import { Salary } from './entities/salary.entity';
 
 @Injectable()
-export class SalaryService extends CrudService<Salary> {
+export class NewsService extends CrudService<News> {
   constructor() {
-    super(Salary);
+    super(News);
   }
 }

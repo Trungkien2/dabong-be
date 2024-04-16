@@ -9,15 +9,12 @@ import { AppService } from './app.service';
 import { DatabaseModule } from './core/database/database.module';
 
 import { ConfigModule } from '@nestjs/config';
-import { UserModule } from './user/user.module';
-import { LogsMiddleware, QueryMiddleware } from './core/middlewares';
-import { APP_FILTER, RouterModule } from '@nestjs/core';
-import { ApiRoute, allModule } from './router';
+import { APP_FILTER } from '@nestjs/core';
 import { AuthModule } from './auth/auth.module';
 import { AllExceptionsFilter } from './core/filter/all-exception.filter';
-import { DepartmentModule } from './department/department.module';
-import { SalaryModule } from './salary/salary.module';
-import { TimekeepingModule } from './timekeeping/timekeeping.module';
+import { LogsMiddleware, QueryMiddleware } from './core/middlewares';
+import { allModule } from './router';
+import { NewsModule } from './news/news.module';
 
 @Module({
   imports: [
@@ -26,9 +23,7 @@ import { TimekeepingModule } from './timekeeping/timekeeping.module';
     // RouterModule.register(ApiRoute),
     ...allModule,
     AuthModule,
-    DepartmentModule,
-    SalaryModule,
-    TimekeepingModule,
+    NewsModule,
   ],
   controllers: [AppController],
   providers: [

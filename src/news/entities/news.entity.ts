@@ -34,10 +34,16 @@ export class News extends Model<News> {
   title: string;
 
   @Column({
-    type: DataType.STRING,
+    type: DataType.STRING(1000),
     allowNull: false,
   })
   description: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  link_url: string;
 
   @Column({
     type: DataType.STRING,

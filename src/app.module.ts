@@ -15,6 +15,10 @@ import { AllExceptionsFilter } from './core/filter/all-exception.filter';
 import { LogsMiddleware, QueryMiddleware } from './core/middlewares';
 import { allModule } from './router';
 import { NewsModule } from './news/news.module';
+import { TeamModule } from './team/team.module';
+import { FootballMatchModule } from './football_match/football_match.module';
+import { LeagueModule } from './league/league.module';
+import { LeagueTeamModule } from './league_team/league_team.module';
 
 @Module({
   imports: [
@@ -24,6 +28,10 @@ import { NewsModule } from './news/news.module';
     ...allModule,
     AuthModule,
     NewsModule,
+    TeamModule,
+    FootballMatchModule,
+    LeagueModule,
+    LeagueTeamModule,
   ],
   controllers: [AppController],
   providers: [

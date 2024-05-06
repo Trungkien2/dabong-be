@@ -54,6 +54,12 @@ export class FootballMatch extends Model<FootballMatch> {
   })
   status: StatusFootball;
 
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  start_time: string;
+
   // default value
   @Column({
     type: DataType.BIGINT,

@@ -88,6 +88,6 @@ export class FootballMatch extends Model<FootballMatch> {
   @Column({ field: 'team_b_id', type: DataType.UUID })
   team_b_id: string;
 
-  @BelongsTo(() => Team)
+  @BelongsTo(() => Team, { foreignKey: 'team_b_id', as: 'team_b' })
   team_b: Team;
 }
